@@ -1,0 +1,10 @@
+.heroparent{
+    height: 270px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
