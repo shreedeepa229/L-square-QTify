@@ -1,0 +1,33 @@
+/* .searchbar{
+    width: 568px;
+    height: 48px;
+    border-radius: 0px, 8px, 8px, 0px;
+} */
+
+
+.parent{
+    display: flex;
+    align-items: center;
+    height: 48px;
+   
+}
+
+.search{
+    padding:14px 20px;
+    border-radius:8px 0px 0px 8px;
+    border: 1px solid var(--color-black);
+    width: 562px;
+    height: 100%;
+    font-family: 'Lato';
+   
+   
+}
+
+.searchbutton{
+     padding:14px 20px;
+    border-radius: 0px 8px 8px 0px; 
+    border: 1px solid var(--color-black);
+    width: 66px;
+    height: 100%;
+   
+}
