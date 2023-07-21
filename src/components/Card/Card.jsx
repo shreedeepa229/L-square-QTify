@@ -8,14 +8,15 @@ const Card = ({image,follwer,title}) => {
     //   {/* {parent componet incudes card + title} */}
     <div className={styles.parent}>
       <div className={styles.card}>
-        <img src={image} alt="songcover" loading='lazyloading'/>
+        <img src={image} alt="songcover" loading="lazy"/>
         <div className={styles.follwerslikes}>
           <p>{follwer}</p>
         </div>
       </div>
 
       <div className={styles.title}>
-        {title}
+        <p> {title}</p>
+       
       </div>
     </div>
   );

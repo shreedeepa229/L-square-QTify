@@ -1,8 +1,9 @@
 .parent{
 /* width: 160px;
 height: 232px; */
-background-color: var(--color-black); 
-color: var(--color-white);
+/* background-color: var(--color-black);  */
+/* color: var(--color-white); */
+width: 160px;
 }
 
 card{
@@ -10,13 +11,13 @@ card{
  width: 160px;
  border-radius: 10px;
  overflow: hidden;
- 
+ color: var(--color-black);
 }
 
 .follwerslikes{
 padding: 4px 8px;
 width: max-content;
-/* background-color: var(--color-black); */
+ background-color: var(--color-black); 
 height: 23px;
 color: var(--color-white);
 

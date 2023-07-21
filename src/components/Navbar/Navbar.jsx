@@ -12,7 +12,7 @@ const Navbar = () => {
       <nav className={styles.navbar}>
         <Logo/>
         <Search placeholder="Search a album of your choice"/>
-        <Button>Give Feedback</Button>
+        <Button children="Give Feedback"/>
         </nav>
    
   )
