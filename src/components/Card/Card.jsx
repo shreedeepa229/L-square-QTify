@@ -1,23 +1,30 @@
 import React from 'react'
-import styles from './Card.module.css'
+import  './card.css'
+import { PlayCircleFilledTwoTone } from '@mui/icons-material';
 
 
 
-const Card = ({image,follwer,title}) => {
+const Card = ({imgSrc,follwersCount,lable}) => {
   return (
     //   {/* {parent componet incudes card + title} */}
-    <div className={styles.parent}>
-      <div className={styles.card}>
-        <img src={image} alt="songcover" loading="lazy"/>
-        <div className={styles.follwerslikes}>
-          <p>{follwer}</p>
+    <div className="card-wrapper">
+      <div className='card'>
+        <div className='card-img-frame'> 
+        <img src={imgSrc} alt="songcover" loading="lazy" className='card-img'/>
+        </div>
+       
+        <div className='card-content'>
+          <span className='card-content-pill'>
+          {follwersCount}follwers
+          </span>
+         
         </div>
       </div>
 
-      <div className={styles.title}>
-        <p> {title}</p>
+      
+        <p className='card-lable'> {lable}</p>
        
-      </div>
+      
     </div>
   );
 }

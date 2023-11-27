@@ -2,43 +2,72 @@ import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import imageholder from "../../assets/imageholder.png";
 import styles from "./Grid.module.css";
-import axios from "axios";
 
-const Grid = ({ TopRight }) => {
-    const[topalbum,settopalbum] = useState([])
-  useEffect(() => {
-    const getTopAlbum = async () => {
-      try {
-        const getData = await axios.get(
-          `https://qtify-backend-labs.crio.do/albums/top`
-        );
-        console.log(getData.data)
-        settopalbum(getData.data)
-       
-      } catch (e) {
-        console.log("error");
-      }
-    };
+// import { Filter } from "@mui/icons-material";
+import Filter from "../Filter/Filter";
+import Carousel from "../Carousel/Carousel";
 
-    getTopAlbum();
-  },[]);
+const Grid = ({type,filtersArray,data,TopRightTitle}) => {
+    const[value,setvalue] = useState(0)
+    const[showAll, setshowAll] = useState(true)
+    // const[filters,setfilters] = useState({key : "all" , label:"All"})
+    
+      console.log("this is data",data)
+
+const handleChange=(e,value)=>{
+  setvalue(value)
+}
+
+
+const filtersongs = (key) =>{
+  const res = data.filter((element)=>element.genre.key === key)
+  console.log(res)
+}
+
+  function handleshowall(){
+    if(showAll){
+      setshowAll(false)
+    }
+else{
+  setshowAll(true)
+}
+  }
+
+
 
   return (
     <div className={styles.parent}>
       <div className={styles.description}>
-        <div>{TopRight}</div>
-        <div>Collapse</div>
+        <h3>{TopRightTitle}</h3>
+        <h3 onClick={handleshowall}>{showAll ? "Show All" : "Collapse"}</h3>
       </div>
-      <div className={styles.grid}>
-      {topalbum.map((element)=>{
-        return (
-            <Card image={element.image} follwer={element.follows} title={element.title} />
+{/* TODO :when data is empty show circular loading */}
+      {/* {
+        showFilters && (
+            <Filter filters={filters} selectedFilterIndex={selectedFilterIndex} setFilterIndex={setFilterIndex}/>
         )
+      } */}
+
+{(data?.length===0) ? "loading" :
+<div className={styles.wrapper}>
+{(showAll) ? 
+  <div className={styles.grid}>
        
-      })
-    }
-     
-      </div>
+{data?.map((element)=>{
+
+ return (
+<div key={element.id}>
+<Card image={element.image} follwer={element.follows} title={element.title} />
+</div>
+       )
+
+})
+}
+</div>  : (<Carousel data={data} renderComponent={(data)=><Card data={data} type={type}/>}/>)
+ }
+</div>
+
+}
     </div>
   );
 };
