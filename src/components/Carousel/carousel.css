@@ -1,6 +1,6 @@
-.swiper-slide{
+/* .swiper-slide{
     color: var(--color-white);
-}
+} */   
 
 .carousel-container {
     position: relative;
@@ -10,11 +10,11 @@
 .arrow{
     position: absolute;
     width: 24px;
-    height: 24px;
-    top: 50%;
+    height: 48px;
+    top: 40%;
     transform: translateY(50%);
     z-index: 1;
-    border-radius: 50%;
+    border-radius: 40%;
     overflow: hidden;
 }
 

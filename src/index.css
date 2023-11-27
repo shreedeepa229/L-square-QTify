@@ -25,7 +25,7 @@ font-family: 'Poppins' , sans-serif;
 line-height: 1.5;
 background-color: var(--color-black); 
 /* color: var(--color-white); */
-overflow: hidden;
+overflow: scroll;
 }
 
 img,svg{

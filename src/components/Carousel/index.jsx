@@ -10,14 +10,14 @@ import {ReactComponent as RightNavigation} from '../RightArrow.svg'
 
 
 
-export default ({data})=>{
+export default ({navId,data})=>{
     return <div className='carousel-container' >
         <Swiper
         modules={[Virtual, Navigation, Pagination]}
         slidesPerView={8}
         spaceBetween={30}
         // navigation={true}
-        navigation={{nextEl: ".arrow-left" ,prevEl: ".arrow-right"}}
+        navigation={{nextEl: `.arrow-left-${navId}` , prevEl: `.arrow-right-${navId}`}}
         virtual
       >
         {data.map(CardData =>     
@@ -32,7 +32,7 @@ export default ({data})=>{
       
           </Swiper>
 
-      <button className='arrow-left arrow'><LeftNavigation/></button>
-      <button className='arrow-right arrow'><RightNavigation/></button>
+      <div className={`arrow-left-${navId} arrow-left arrow`}><LeftNavigation/></div>
+      <div className={`arrow-right-${navId} arrow-right arrow`}><RightNavigation/></div>
     </div>
 }

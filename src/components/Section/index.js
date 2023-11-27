@@ -4,7 +4,7 @@ import './section.css'
  import Carousel from "../Carousel/index";
 
 
-export default ({title,data}) => {
+export default ({navId,title,data}) => {
     const[isCollapsed,setisCollapsed]=useState(false)
 
   return (
@@ -16,7 +16,7 @@ export default ({title,data}) => {
       }}>{isCollapsed ? 'Show All' : 'Collapse'}</h1>
       </div>
         {
-          (isCollapsed) ? <Carousel data={data}/> : (
+          (isCollapsed) ? <Carousel navId={navId} data={data}/> : (
 <div className="card-container">
            {data.map(CardData => 
             <Card 

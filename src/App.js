@@ -11,6 +11,7 @@ import { useState } from 'react';
 import axios from "axios";
 import styles from './App.css';
 import Section from './components/Section/index';
+import FilterSection from './components/FilterSection';
 
 
 const ENDPOINT = "https://qtify-backend-labs.crio.do"
@@ -20,7 +21,9 @@ const ENDPOINT = "https://qtify-backend-labs.crio.do"
 function App() {
   const[topAlbum,settopAlbum] = useState([])
   const[newAlbum,setnewAlbum] = useState([])
-  const[allsongsData,setallsongsData] = useState([])
+  const[songs,setSongs] = useState([])
+  const[filteredSongs,setFilteredSongs] = useState([])
+  const[genres,setGenres] = useState([])
 
 
 useEffect(()=> {
@@ -39,16 +42,45 @@ axios.get(`${ENDPOINT}/albums/new`)
 .catch((error) =>{
   console.log(error)}
 )
+
+axios.get(`${ENDPOINT}/songs`) 
+.then(({data} ) =>{
+  setSongs(data)
+  setFilteredSongs(data)
+})
+.catch((error) =>{
+  console.log(error)}
+)
+
+axios.get(`${ENDPOINT}/genres`) 
+.then((res ) =>{
+  setGenres([{"key":"all","label":"All"},...res.data.data])
+})
+.catch((error) =>{
+  console.log(error)}
+)
 },[])
 
 
 
-  return (
+  return ( 
     <div >
       <Navbar/> 
       <Herosection/>
-      <Section title="Top Album" data={topAlbum}/>
-      <Section title="New Album" data={newAlbum}/>
+      <Section navId='ta' title="Top Album" data={topAlbum}/>
+      <Section navId="na" title="New Album" data={newAlbum}/>
+      <FilterSection title="Songs" data={filteredSongs} filters={genres}
+      executeFilter  = {(genre)=>{
+if(genre==="all"){
+  setFilteredSongs(songs)
+}else{
+  const filteredSongs = songs.filter(ele=>ele.genre.key === genre)
+  setFilteredSongs(filteredSongs)
+}
+      }
+
+
+      }/>
     </div>
   );
 }
