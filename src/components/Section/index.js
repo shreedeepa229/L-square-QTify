@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import './section.css'
  import Carousel from "../Carousel/index";
+ import Tooltip from '@mui/material/Tooltip';
 
 
 export default ({navId,title,data}) => {
@@ -19,11 +20,13 @@ export default ({navId,title,data}) => {
           (isCollapsed) ? <Carousel navId={navId} data={data}/> : (
 <div className="card-container">
            {data.map(CardData => 
+      
             <Card 
             key = {CardData.id} 
             imgSrc={CardData.image} 
             follwersCount={CardData.follows} 
             lable={CardData.title}/>
+          
            )}
         </div>
           )
