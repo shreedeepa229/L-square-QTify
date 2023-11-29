@@ -11,6 +11,7 @@ export default ({navId,title,data}) => {
   return (
     <div className="section">
       <div className="section-header">
+        
       <h1 className="title">{title}</h1>
       <h1 className="section-toggle-btn" onClick={()=>{
         setisCollapsed(!isCollapsed)
@@ -18,17 +19,25 @@ export default ({navId,title,data}) => {
       </div>
         {
           (isCollapsed) ? <Carousel navId={navId} data={data}/> : (
-<div className="card-container">
+           
+ <div className="card-container">
            {data.map(CardData => 
-      
-            <Card 
+  
+   <Card 
             key = {CardData.id} 
             imgSrc={CardData.image} 
             follwersCount={CardData.follows} 
-            lable={CardData.title}/>
+            lable={CardData.title}
+            songcount={Object.keys(CardData.songs).length}/>
+
+            
           
+
+           
            )}
         </div>
+
+
           )
         }
         

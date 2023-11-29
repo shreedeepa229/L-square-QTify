@@ -1,13 +1,15 @@
 import React from 'react'
 import  './card.css'
 import { PlayCircleFilledTwoTone } from '@mui/icons-material';
+import Tooltip from '@mui/material/Tooltip';
 
 
-
-const Card = ({imgSrc,follwersCount,lable}) => {
+const Card = ({imgSrc,follwersCount,lable,songcount}) => {
+  console.log(songcount)
   return (
-    //   {/* {parent componet incudes card + title} */}
-    <div className="card-wrapper">
+    //   {/* {paren componet incudes card + title} */}
+    <Tooltip title={songcount+" songs"} arrow placement='top'>
+ <div className="card-wrapper">
       <div className='card'>
         <div className='card-img-frame'> 
         <img src={imgSrc} alt="songcover" loading="lazy" className='card-img'/>
@@ -15,7 +17,7 @@ const Card = ({imgSrc,follwersCount,lable}) => {
        
         <div className='card-content'>
           <span className='card-content-pill'>
-          {follwersCount}follwers
+          {follwersCount}follwers      
           </span>
          
         </div>
@@ -26,6 +28,8 @@ const Card = ({imgSrc,follwersCount,lable}) => {
        
       
     </div>
+</Tooltip>
+   
   );
 }
 

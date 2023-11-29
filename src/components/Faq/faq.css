@@ -1,0 +1,13 @@
+.container{
+    align-items: center;
+    width: 1135px;
+    height: 345px;
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.heading{
+    font-weight: 600;
+}

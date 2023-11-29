@@ -20,16 +20,20 @@ export default ({navId,data})=>{
         navigation={{nextEl: `.arrow-left-${navId}` , prevEl: `.arrow-right-${navId}`}}
         virtual
       >
-        {data.map(CardData =>     
+        {data.map(CardData => 
+        
         <SwiperSlide key = {CardData.id} >
             <Card 
-         
+       
             imgSrc={CardData.image} 
             follwersCount={CardData.follows} 
-            lable={CardData.title}/>
+            lable={CardData.title}
+            songcount={Object.keys(CardData.songs).length}
+           
+            />
         </SwiperSlide> )}
        
-      
+        {/* songcount={Object.keys(CardData.songs).length} */}
           </Swiper>
 
       <div className={`arrow-left-${navId} arrow-left arrow`}><LeftNavigation/></div>

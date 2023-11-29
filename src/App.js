@@ -12,7 +12,7 @@ import axios from "axios";
 import styles from './App.css';
 import Section from './components/Section/index';
 import FilterSection from './components/FilterSection';
-
+import Faq from "./components/Faq"
 
 const ENDPOINT = "https://qtify-backend-labs.crio.do"
 
@@ -81,6 +81,7 @@ if(genre==="all"){
 
 
       }/>
+      <Faq/>
     </div>
   );
 }
