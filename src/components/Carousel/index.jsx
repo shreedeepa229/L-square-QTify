@@ -28,7 +28,7 @@ export default ({navId,data})=>{
             imgSrc={CardData.image} 
             follwersCount={CardData.follows} 
             lable={CardData.title}
-            songcount={Object.keys(CardData.songs).length}
+       
            
             />
         </SwiperSlide> )}
