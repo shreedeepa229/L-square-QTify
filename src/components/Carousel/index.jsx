@@ -20,17 +20,27 @@ export default ({navId,data})=>{
         navigation={{nextEl: `.arrow-left-${navId}` , prevEl: `.arrow-right-${navId}`}}
         virtual
       >
+        
         {data.map(CardData => 
         
         <SwiperSlide key = {CardData.id} >
-            <Card 
+        {
+(CardData.likes)  ? 
+<Card 
        
-            imgSrc={CardData.image} 
-            follwersCount={CardData.follows} 
-            lable={CardData.title}
+       imgSrc={CardData.image} 
+       likesCount={CardData.likes} 
+       lable={CardData.title}
+
+       /> :   <Card 
        
-           
-            />
+       imgSrc={CardData.image} 
+       follwersCount={CardData.follows} 
+       lable={CardData.title}
+  songcount={CardData.songs.length}
+       />
+        }
+          
         </SwiperSlide> )}
        
         {/* songcount={Object.keys(CardData.songs).length} */}

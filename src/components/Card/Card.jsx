@@ -4,11 +4,41 @@ import { PlayCircleFilledTwoTone } from '@mui/icons-material';
 import Tooltip from '@mui/material/Tooltip';
 
 
-const Card = ({imgSrc,follwersCount,lable,songcount}) => {
-  console.log(songcount)
+const Card = ({isalbum,imgSrc,follwersCount,lable,songcount,likesCount}) => {
+  console.log(songcount===null)
   return (
-    //   {/* {paren componet incudes card + title} */}
-    <Tooltip title={songcount+" songs"} arrow placement='top'>
+    <>
+    {
+    (likesCount) ? <div className="card-wrapper">
+    <div className='card'>
+      <div className='card-img-frame'> 
+      <img src={imgSrc} alt="songcover" loading="lazy" className='card-img'/>
+      </div>
+     
+      <div className='card-content'>
+        {
+(!likesCount)  ? 
+<span className='card-content-pill'>
+        {follwersCount} follwers      
+            </span> 
+        :
+        <span className='card-content-pill'>
+        {likesCount} likes      
+            </span> 
+        
+        }
+          
+       
+       
+      </div>
+    </div>
+
+    
+      <p className='card-lable'> {lable}</p>
+     
+    
+  </div> : 
+ <Tooltip title={`${songcount} songs`} arrow placement='top'>
  <div className="card-wrapper">
       <div className='card'>
         <div className='card-img-frame'> 
@@ -16,9 +46,19 @@ const Card = ({imgSrc,follwersCount,lable,songcount}) => {
         </div>
        
         <div className='card-content'>
+          {
+(!likesCount)  ? 
+<span className='card-content-pill'>
+          {follwersCount} follwers      
+              </span> 
+          :
           <span className='card-content-pill'>
-          {follwersCount}follwers      
-          </span>
+          {likesCount} likes      
+              </span> 
+          
+          }
+            
+         
          
         </div>
       </div>
@@ -29,6 +69,10 @@ const Card = ({imgSrc,follwersCount,lable,songcount}) => {
       
     </div>
 </Tooltip>
+    }
+    </>
+    //   {/* {paren componet incudes card + title} */}
+   
    
   );
 }

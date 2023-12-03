@@ -67,9 +67,9 @@ axios.get(`${ENDPOINT}/genres`)
     <div >
       <Navbar/> 
       <Herosection/>
-      <Section navId='ta' title="Top Album" data={topAlbum}/>
-      <Section navId="na" title="New Album" data={newAlbum}/>
-      <FilterSection title="Songs" data={filteredSongs} filters={genres}
+      <Section isalbum ="true" navId='ta' title="Top Album" data={topAlbum}/>
+      <Section isalbum ="true" navId="na" title="New Album" data={newAlbum}/>
+      <FilterSection isalbum ="false" title="Songs" data={filteredSongs} filters={genres}
       executeFilter  = {(genre)=>{
 if(genre==="all"){
   setFilteredSongs(songs)

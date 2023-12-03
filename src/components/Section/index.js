@@ -18,7 +18,7 @@ export default ({navId,title,data}) => {
       }}>{isCollapsed ? 'Show All' : 'Collapse'}</h1>
       </div>
         {
-          (isCollapsed) ? <Carousel navId={navId} data={data}/> : (
+          isCollapsed ? <Carousel navId={navId} data={data}/> : (
            
  <div className="card-container">
            {data.map(CardData => 
@@ -28,7 +28,7 @@ export default ({navId,title,data}) => {
             imgSrc={CardData.image} 
             follwersCount={CardData.follows} 
             lable={CardData.title}
-            songcount={Object.keys(CardData.songs).length}/>
+            songcount={CardData.songs.length}/>
 
             
           
